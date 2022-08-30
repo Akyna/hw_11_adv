@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        elementFormDefault="qualified"
+        targetNamespace="http://maven.apache.org/POM/4.0.0"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="project">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="modelVersion" type="xs:string"/>
+                <xs:element name="groupId" type="xs:string"/>
+                <xs:element name="artifactId" type="xs:string"/>
+                <xs:element name="version" type="xs:string"/>
+                <xs:element name="dependencies">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="dependency">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="groupId" type="xs:string"/>
+                                        <xs:element name="artifactId" type="xs:string"/>
+                                        <xs:element name="version" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="properties">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="maven.compiler.source" type="xs:unsignedByte"/>
+                            <xs:element name="maven.compiler.target" type="xs:unsignedByte"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="build">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="plugins">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="plugin">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="groupId" type="xs:string"/>
+                                                    <xs:element name="artifactId" type="xs:string"/>
+                                                    <xs:element name="configuration">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="archive">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="manifest">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="addClasspath"
+                                                                                                    type="xs:boolean"/>
+                                                                                        <xs:element name="mainClass"
+                                                                                                    type="xs:string"/>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
